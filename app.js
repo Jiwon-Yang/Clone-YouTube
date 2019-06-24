@@ -14,6 +14,11 @@ const app = express();
 
 app.use(helmet());
 app.set("view engine", "pug");
+
+app.use("/uploads", express.static("uploads"));
+//디렉토리에서 파일을 보내주는 미들웨어
+// '/uploads'로 가면 'uploads'라는 디렉토리 내에 들어감
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
