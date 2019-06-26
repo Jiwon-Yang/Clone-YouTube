@@ -49,12 +49,19 @@ const routes = {
     },
     editVideo : (id) => {
       if (id) {
-        return `videos/${id}/edit`;
+        return `/videos/${id}/edit`;
+        // '/videos' 와 'videos'는 다르다는 점 주의!
       } else {
         return EDIT_VIDEO;
       }
-     },
-    deleteVideo: DELETE_VIDEO
+    },
+    deleteVideo: (id) => {
+      if (id) {
+        return `/videos/${id}/delete`;
+      } else {
+        return DELETE_VIDEO;
+      }
+    }
   };
   
   export default routes;
