@@ -11,6 +11,8 @@ mongoose.connect(
   } //configuration
 );
 
+mongoose.set("useCreateIndex", true);
+
 const db = mongoose.connection;
 
 const handleOpen = () => console.log("✅ Connected to DB");

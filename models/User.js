@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { StringDecoder } from "string_decoder";
 import passportLocalMongoose from "passport-local-mongoose";
 
 const UserSchema = new mongoose.Schema({
@@ -10,8 +9,8 @@ const UserSchema = new mongoose.Schema({
   githubId: Number
 });
 
-UserSchema.plugin(passportLocalMongoose, { usernameFile: "email" });
+UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });
 
-const model = mongoose.Model("User", UserSchema);
+const model = mongoose.model("User", UserSchema);
 
 export default model;

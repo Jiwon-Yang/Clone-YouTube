@@ -12,13 +12,21 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.(js)$/,
+        use: [
+          {
+            loader: "babel-loader"
+          }
+        ]
+      },
+      {
         test: /\.(scss)$/,
         use: ExtractCSS.extract([
           {
-            loader: "css-loader" // css 이해하고 가져옴
+            loader: "css-loader"
           },
           {
-            loader: "postcss-loader", // css 호환성 해결
+            loader: "postcss-loader",
             options: {
               plugins() {
                 return [autoprefixer({ browsers: "cover 99.5%" })];
@@ -26,7 +34,7 @@ const config = {
             }
           },
           {
-            loader: "sass-loader" // sass, scss -> css
+            loader: "sass-loader"
           }
         ])
       }
